@@ -44,10 +44,10 @@ class UTC(tzinfo):
         return ZERO
 
 
-def random_datetime(past=False, min_delta=0, max_delta=20):
+def random_datetime(past=False, min_delta=0, max_delta=20, tzinfo=UTC):
     """Random `datetime.date` object. Delta args are days."""
     delta = timedelta(seconds=forgery_py.date._delta(past, min_delta, max_delta))
-    return datetime.now(UTC()) + delta
+    return datetime.now(tzinfo()) + delta
 
 
 def generate_person():
